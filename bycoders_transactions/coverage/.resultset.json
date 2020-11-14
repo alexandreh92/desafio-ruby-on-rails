@@ -1,0 +1,101 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/alexandre/desafio-ruby-on-rails/bycoders_transactions/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/alexandre/desafio-ruby-on-rails/bycoders_transactions/app/models/card.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/alexandre/desafio-ruby-on-rails/bycoders_transactions/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/alexandre/desafio-ruby-on-rails/bycoders_transactions/app/models/financial_operation.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/alexandre/desafio-ruby-on-rails/bycoders_transactions/app/models/financial_operation_type.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/alexandre/desafio-ruby-on-rails/bycoders_transactions/app/models/enums/financial_operator.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexandre/desafio-ruby-on-rails/bycoders_transactions/app/models/holder.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/alexandre/desafio-ruby-on-rails/bycoders_transactions/app/models/store.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/alexandre/desafio-ruby-on-rails/bycoders_transactions/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1605317994
+  }
+}
