@@ -28,3 +28,6 @@
 
 # Ignores ERD Diagram
 /erd.pdf
+
+# Ignores Simplecov Report
+/coverage
