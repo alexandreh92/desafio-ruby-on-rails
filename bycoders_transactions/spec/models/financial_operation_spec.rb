@@ -8,7 +8,8 @@ RSpec.describe FinancialOperation, type: :model do
 
   describe 'associations' do
     it { should belong_to(:store) }
-    it { should belong_to(:holder) }
+    it { should belong_to(:card) }
     it { should belong_to(:financial_operation_type) }
+    it { should have_one(:holder) }
   end
 end

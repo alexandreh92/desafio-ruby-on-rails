@@ -32,14 +32,14 @@ ActiveRecord::Schema.define(version: 2020_11_14_002717) do
 
   create_table "financial_operations", force: :cascade do |t|
     t.datetime "ocurred_in"
-    t.decimal "amount", precision: 8, scale: 2
+    t.decimal "amount", precision: 8, scale: 2, default: "0.0"
     t.bigint "store_id"
-    t.bigint "holder_id"
+    t.bigint "card_id"
     t.bigint "financial_operation_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_financial_operations_on_card_id"
     t.index ["financial_operation_type_id"], name: "index_financial_operations_on_financial_operation_type_id"
-    t.index ["holder_id"], name: "index_financial_operations_on_holder_id"
     t.index ["store_id"], name: "index_financial_operations_on_store_id"
   end
 
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_002717) do
   end
 
   add_foreign_key "cards", "holders"
+  add_foreign_key "financial_operations", "cards"
   add_foreign_key "financial_operations", "financial_operation_types"
-  add_foreign_key "financial_operations", "holders"
   add_foreign_key "financial_operations", "stores"
 end

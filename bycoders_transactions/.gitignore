@@ -31,3 +31,6 @@
 
 # Ignores Simplecov Report
 /coverage
+
+# Allows CNAB.txt
+!/tmp/CNAB.txt
