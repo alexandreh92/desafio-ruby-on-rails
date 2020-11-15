@@ -14,6 +14,10 @@ module BycodersTransactions
 
     config.generators do |g|
       g.test_framework nil
+      g.assets false
+      g.stylesheets false
+      g.helper false
+      g.skip_routes true
     end
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
