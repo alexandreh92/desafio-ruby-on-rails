@@ -1,0 +1,8 @@
+tr
+  td data-label="#{Store.human_attribute_name :name}" = financial_operation.store.name
+  td data-label="#{Store.human_attribute_name :owner}" = financial_operation.store.owner
+  td data-label="#{Holder.human_attribute_name :cpf}" = financial_operation.holder.cpf
+  td data-label="#{Card.human_attribute_name :number}" = financial_operation.card.number
+  td data-label="#{FinancialOperation.human_attribute_name :ocurred_in}" = financial_operation.ocurred_in.strftime('%d/%m/%Y %H:%M')
+  td data-label="#{FinancialOperation.human_attribute_name :description}" = financial_operation.financial_operation_type.description
+  td data-label="#{FinancialOperation.human_attribute_name :amount}" = number_to_currency(financial_operation.amount, unit: 'R$ ', :precision => 2)

@@ -2,7 +2,16 @@ class FinancialOperationsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    # index stuff
+    @financial_operations = FinancialOperation.includes(
+      :store, :holder, :card, :financial_operation_type
+    ).filters(
+      financial_operations_params.slice(:search)
+    )
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def import
@@ -13,15 +22,15 @@ class FinancialOperationsController < ApplicationController
     )
 
     if imports.call
-      head :ok
+      redirect_to financial_operations_path, notice: t('upload_success')
     else
-      render json: 'foo'
+      flash[:error] = 'upload_error'
     end
   end
 
   private
 
     def financial_operations_params
-      params.permit(:file)
+      params.permit(:file, :search)
     end
 end

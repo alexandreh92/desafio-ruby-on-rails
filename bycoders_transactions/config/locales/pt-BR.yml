@@ -1,2 +1,39 @@
 pt-BR:
-  hello: Something
+  search: Pesquisar
+
+  activerecord:
+    models:
+      card:
+    models:
+      card:
+        one: Cartão
+        other: Cartões
+      financial_operation_type:
+        one: Tipo
+        other: Tipos
+      financial_operation:
+        one: Operação Financeira
+        other: Operações Financeiras
+      holder:
+        one: Proprietário
+        other: Proprietários
+      store:
+        one: Loja
+        other: Lojas
+
+    attributes:
+      card:
+        holder: Proprietário
+        number: Número
+      financial_operation_type:
+        description: Descrição
+        nature: Natureza
+      financial_operation:
+        ocurred_in: Data
+        amount: Quantia
+      holder:
+        cpf: CPF
+      store:
+        name: Nome
+        owner: Dono
+

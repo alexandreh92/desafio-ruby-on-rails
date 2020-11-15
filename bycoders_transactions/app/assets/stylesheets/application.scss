@@ -1,0 +1,426 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*******************************
+             Reset
+*******************************/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+.main-container {
+  height: 100vh;
+}
+
+*,
+button,
+input {
+  border: 0;
+  outline: 0;
+
+  font-family: "Montserrat", sans-serif;
+}
+
+a:-webkit-any-link {
+  color: unset;
+  text-decoration: none;
+}
+
+input::-webkit-input-placeholder {
+  color: var(--light-gray);
+}
+input:-moz-placeholder {
+  color: var(--light-gray);
+}
+
+:root {
+  --background-primary: #f4f4f4;
+  --background-secondary: #fff;
+  --background-dark: #1a1a1a;
+
+  --light-gray: #bbb;
+  --table-borders: #ddd;
+
+  --black: #3f3f3f;
+  --white: #fff;
+  --bycoders: #00f0a2;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  position: relative;
+}
+
+table tbody tr {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--table-borders);
+  border-right-width: 0;
+  border-left-width: 0;
+  padding: 0.35em;
+
+  &:nth-of-type(odd) {
+    background-color: var(--background-primary);
+  }
+}
+
+table th,
+table td {
+  padding: 0.625em;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+table th {
+  position: sticky;
+  top: 0;
+  background: var(--background-secondary);
+
+  -webkit-box-shadow: 0px 1px 1px 0px var(--table-borders);
+  -moz-box-shadow: 0px 1px 1px 0px var(--table-borders);
+  box-shadow: 0px 1px 1px 0px var(--table-borders);
+
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+
+  height: 40px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+table tbody tr {
+  color: var(--black);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+table tfoot tr th {
+  box-shadow: unset;
+}
+
+@media screen and (max-width: 750px) {
+  table {
+    border: 0;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid var(--table-borders);
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid var(--table-borders);
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  table tfoot tr {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0;
+  }
+}
+/*******************************
+          Global Style
+*******************************/
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+
+  background: var(--background-primary);
+}
+
+.btn {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 60px;
+
+  background: transparent;
+  border: 2px solid var(--bycoders);
+
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  color: var(--black);
+
+  cursor: pointer;
+
+  transition: background-color 300ms ease;
+  -moz-transition: background-color 300ms ease;
+  -webkit-transition: background-color 300ms ease;
+  -ms-transition: background-color 300ms ease;
+
+  &:hover {
+    background: var(--bycoders);
+  }
+
+  .outline {
+    color: var(--white);
+  }
+}
+
+.box {
+  padding: 30px 50px;
+
+  background: var(--background-secondary);
+
+  box-shadow: 0 0 37px -8px rgba(0, 0, 0, 0.19);
+
+  border-style: solid;
+  border-width: 0 0 6px;
+  border-color: var(--bycoders);
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 600;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px/34px;
+}
+
+.description {
+  font-size: 500;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px/20px;
+  line-height: 1.8em;
+  letter-spacing: 0.4px;
+}
+
+.heading {
+  font-size: 18px/20px;
+  font-weight: 700;
+  line-height: 1.4em;
+}
+
+.green {
+  color: var(--bycoders);
+}
+
+.mr-1 {
+  margin-right: 6px;
+}
+
+.mr-2 {
+  margin-right: 12px;
+}
+
+.mr-3 {
+  margin-right: 18px;
+}
+
+.mr-4 {
+  margin-right: 24px;
+}
+
+.mr-5 {
+  margin-right: 32px;
+}
+
+.ml-1 {
+  margin-left: 6px;
+}
+
+.ml-2 {
+  margin-left: 12px;
+}
+
+.ml-3 {
+  margin-left: 18px;
+}
+
+.ml-4 {
+  margin-left: 24px;
+}
+
+.ml-5 {
+  margin-left: 32px;
+}
+
+.mt-1 {
+  margin-top: 6px;
+}
+
+.mt-2 {
+  margin-top: 12px;
+}
+
+.mt-3 {
+  margin-top: 18px;
+}
+
+.mt-4 {
+  margin-top: 24px;
+}
+
+.mt-5 {
+  margin-top: 32px;
+}
+
+.mb-1 {
+  margin-bottom: 6px;
+}
+
+.mb-2 {
+  margin-bottom: 12px;
+}
+
+.mb-3 {
+  margin-bottom: 18px;
+}
+
+.mb-4 {
+  margin-bottom: 24px;
+}
+
+.mb-5 {
+  margin-bottom: 32px;
+}
+
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
+.marked {
+  cursor: pointer;
+  position: relative;
+
+  &::before {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    content: "";
+
+    height: 2px;
+    width: 100%;
+
+    background: var(--bycoders);
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.green {
+  color: var(--bycoders);
+}
+
+.black {
+  color: var(--black);
+}
+
+.bycoders {
+  font-variant-caps: small-caps;
+  text-transform: capitalize;
+
+  &::after {
+    content: "_";
+    display: flex;
+    color: var(--bycoders);
+  }
+}
+
+.ellipsize {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 0 0 37px -8px rgba(0,0,0,.19) */

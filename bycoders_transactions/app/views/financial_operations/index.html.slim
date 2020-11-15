@@ -1,0 +1,46 @@
+.financial-operations-wrapper
+  .top-header
+    = link_to root_path
+      i data-feather="arrow-left"
+  .box.financial-operations
+    .financial-box-header
+      h1.heading.bycoders.ml-2.flex.black.ellipsize = FinancialOperation.model_name.human count: 2
+      = form_tag financial_operations_path, method: :get, remote: true, id:'search-form', class: 'financial-right-header-container' do
+        .search-input
+          = text_field_tag 'search', nil, placeholder: t('search')
+          i data-feather="search"
+    - if @financial_operations.length > 0
+      .table-wrapper
+        table
+          thead
+            tr
+              th = Store.human_attribute_name :name
+              th = Store.human_attribute_name :owner
+              th = Holder.human_attribute_name :cpf
+              th = Card.human_attribute_name :number
+              th = FinancialOperation.human_attribute_name :ocurred_in
+              th = FinancialOperationType.human_attribute_name :description
+              th = FinancialOperation.human_attribute_name :amount
+          tbody#financial_operations
+            = render partial: @financial_operations
+          tfoot
+            tr
+              th.total-col colspan="6"  Total:
+              td#total-balance = number_to_currency(@financial_operations.total_balance, unit: 'R$ ', :precision => 2)
+
+javascript:
+
+  var debounce = null
+  $('#search').on('keyup', function(e){
+    clearTimeout(debounce);
+    debounce = setTimeout(function(){
+      $.ajax({
+        type: "GET",
+        beforeSend: function (xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
+        url: $('#search-form').attr("action"),
+        data: $('#search-form').serialize(),
+        dataType: 'script'
+      });
+    }, 300);
+  });
+

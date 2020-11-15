@@ -2,26 +2,29 @@ class FinancialOperationImporterJob < ApplicationJob
   queue_as :default
 
   def perform(operation)
-    store = Store.find_or_create_by(
-      owner: operation[:owner],
-      name: operation[:store_name]
-    )
+    ActiveRecord::Base.transaction do
+      ActiveRecord::Base.connection.execute('LOCK HOLDERS IN ACCESS EXCLUSIVE MODE')
+      store = Store.find_or_create_by(
+        owner: operation[:owner],
+        name: operation[:store_name]
+      )
 
-    holder = Holder.where(cpf: operation[:cpf]).first_or_create!
+      holder = Holder.where(cpf: operation[:cpf]).first_or_create!
 
-    card = Card.find_or_create_by(holder: holder, number: operation[:card_number])
+      card = Card.find_or_create_by(holder: holder, number: operation[:card_number])
 
-    operation_type = FinancialOperationType.find(
-      operation[:financial_operation_type]
-    )
+      operation_type = FinancialOperationType.find(
+        operation[:financial_operation_type]
+      )
 
-    FinancialOperation.create(
-      store: store,
-      card: card,
-      financial_operation_type: operation_type,
-      amount: operation[:amount],
-      ocurred_in: ocurred_in(operation)
-    )
+      FinancialOperation.create(
+        store: store,
+        card: card,
+        financial_operation_type: operation_type,
+        amount: operation[:amount],
+        ocurred_in: ocurred_in(operation)
+      )
+    end
   end
 
   private

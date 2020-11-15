@@ -1,0 +1,2 @@
+$("#financial_operations").html("<%= j render(partial: @financial_operations) %>");
+$("#total-balance").html("<%= number_to_currency(@financial_operations.total_balance, unit: 'R$ ', :precision => 2) %>");

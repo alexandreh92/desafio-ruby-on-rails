@@ -1,2 +1,19 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+.home-wrapper
+  .box.welcomes-box
+    .welcomes-container.align-center
+      = image_tag ('bycoders.png'), class: 'logo'
+      h2.heading.mb-4.text-center.black
+        | Bem vindo ao bycoders
+        span.green.mr-1 _
+        | Financial Importer, aonde você pode importar as operações financeiras de sua loja!
+      = form_tag import_financial_operations_path, multipart: true, class: 'file-form' do
+        div.mb-3.black
+          div.flex.description.mb-5.welcomes-description
+            p Para começar, faça o
+            label.mr-1.ml-1.marked for="file" upload
+            | de seu arquivo .txt ou clique
+            = link_to 'aqui', financial_operations_path, class: 'mr-1 ml-1 marked'
+            p para acessar os&nbsp;
+            p registros já importados!
+        = file_field_tag "file", class: 'hidden', required: true
+        = submit_tag 'Enviar', class: 'btn align-self-center'
