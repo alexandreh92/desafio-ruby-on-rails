@@ -34,3 +34,6 @@
 
 # Allows CNAB.txt
 !/tmp/CNAB.txt
+
+# Ignores .env
+.env.*

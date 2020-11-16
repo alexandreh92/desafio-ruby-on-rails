@@ -15,14 +15,17 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'slim-rails'
 gem 'will_paginate'
+gem 'sidekiq'
 
 group :development, :test do
+  gem 'dotenv-rails', '~> 2.7.5'
   gem 'rubocop', '~> 0.87.1'
   gem 'pry'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
+  gem 'foreman'
   gem 'better_errors'
   gem 'bullet'
   gem 'rails-erd'
