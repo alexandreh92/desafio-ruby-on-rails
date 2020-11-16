@@ -17,15 +17,6 @@ gem 'slim-rails'
 gem 'will_paginate'
 
 group :development, :test do
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'spring-commands-rspec'
-  gem 'factory_bot_rails'
-  gem 'shoulda-matchers'
-  gem 'rails-controller-testing'
-  gem 'database_cleaner'
-  gem 'simplecov'
-  gem 'rspec-simplecov'
   gem 'rubocop', '~> 0.87.1'
   gem 'pry'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -45,6 +36,15 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'webdrivers', '~> 4.0'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
+  gem 'database_cleaner'
+  gem 'simplecov'
+  gem 'rspec-simplecov'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
