@@ -13,4 +13,20 @@ html
     script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"
   body
     .main-container
+      .top-header
+        - unless current_page?(root_path)
+          = link_to root_path
+            i data-feather="arrow-left"
+        input type="checkbox" id="theme" name="theme" class="#{current_page?(root_path) ? 'hidden' : 'switch'}"
       = yield
+
+javascript:
+  $('document').ready(function() {
+    var darkThemeSelected =
+      localStorage.getItem("themeSwitch") !== null &&
+      localStorage.getItem("themeSwitch") === "dark";
+    if(darkThemeSelected) {
+      whiteLogoPath = "#{asset_path('bycoders_white.png')}";
+      $('#logo').attr('src', whiteLogoPath);
+    }
+  })

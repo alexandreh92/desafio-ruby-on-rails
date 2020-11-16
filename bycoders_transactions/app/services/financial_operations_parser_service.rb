@@ -8,7 +8,7 @@ class FinancialOperationsParserService
   end
 
   def call
-    parser.new(file: file).parse.each do |financial_operation|
+    parser.new(file: file.tempfile).parse.each do |financial_operation|
       FinancialOperationImporterJob.perform_later(
         splitter.new(string: financial_operation).split
       )

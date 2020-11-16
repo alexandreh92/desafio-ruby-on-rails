@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe FinancialOperationsParserService, type: :service do
-  let(:file) { File.open("#{Rails.root.join('tmp')}/CNAB.txt") }
+  let(:file) do
+    fixture_file_upload(File.open("#{Rails.root.join('tmp')}/CNAB.txt"), 'text/xml')
+  end
   let(:parser) { Parsers::TxtParser }
   let(:splitter) { Splitters::FinancialOperations }
   let(:parsed_file) { parser.new(file: file).parse }
@@ -23,7 +25,7 @@ RSpec.describe FinancialOperationsParserService, type: :service do
           FinancialOperationImporterJob
         ).exactly(21).times
         expect(FinancialOperationImporterJob).to(
-          have_been_enqueued.with(splited_data)
+          have_been_enqueued.at_least(:once).with(splited_data)
         )
         expect(subject).to eq(true)
       end

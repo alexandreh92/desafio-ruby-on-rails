@@ -20,7 +20,9 @@ class FinancialOperation < ApplicationRecord
     cpf_matches = Holder.arel_table[:cpf].matches(search)
     card_number_matches = Card.arel_table[:number].matches(search)
 
-    joins(:store).where(owner_matches.or(store_matches).or(cpf_matches).or(card_number_matches))
+    joins(:store, :holder, :card).where(
+      owner_matches.or(store_matches).or(cpf_matches).or(card_number_matches)
+    )
   }
 
   scope :by_nature, lambda { |nature|

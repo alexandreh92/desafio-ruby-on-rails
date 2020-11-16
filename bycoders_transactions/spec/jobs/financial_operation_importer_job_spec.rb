@@ -17,7 +17,7 @@ RSpec.describe FinancialOperationImporterJob, type: :job do
 
     it 'enquee job with splitted data' do
       expect { subject }.to enqueue_job
-      expect(job).to(have_been_enqueued.with(splitted_data))
+      expect(job).to(have_been_enqueued.at_least(:once).with(splitted_data))
     end
   end
 

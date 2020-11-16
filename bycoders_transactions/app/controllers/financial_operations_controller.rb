@@ -1,6 +1,4 @@
 class FinancialOperationsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def index
     @financial_operations = FinancialOperation.includes(
       :store, :holder, :card, :financial_operation_type
@@ -16,7 +14,7 @@ class FinancialOperationsController < ApplicationController
 
   def import
     imports = FinancialOperationsParserService.new(
-      file: financial_operations_params[:file].tempfile,
+      file: financial_operations_params[:file],
       parser: Parsers::TxtParser,
       splitter: Splitters::FinancialOperations
     )
