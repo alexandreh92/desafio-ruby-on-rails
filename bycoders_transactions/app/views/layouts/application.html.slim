@@ -2,15 +2,20 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    title BycodersTransactions
+    title bycoders_ Financial Importer
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag "application"
     link href="https://fonts.gstatic.com" rel="preconnect" /
     link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;1,300&family=Roboto:wght@500&display=swap" rel="stylesheet" /
+    link href="https://www.bycoders.com.br/wp-content/uploads/2020/06/cropped-Ativo-1-32x32.png" rel="icon" sizes="32x32" /
+    link href="https://www.bycoders.com.br/wp-content/uploads/2020/06/cropped-Ativo-1-192x192.png" rel="icon" sizes="192x192" /
+    link href="https://www.bycoders.com.br/wp-content/uploads/2020/06/cropped-Ativo-1-180x180.png" rel="apple-touch-icon" /
+    link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" /
     script src="https://unpkg.com/feather-icons"
     script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
   body
     .main-container
       .top-header
@@ -18,6 +23,7 @@ html
           = link_to root_path
             i data-feather="arrow-left"
         input type="checkbox" id="theme" name="theme" class="#{current_page?(root_path) ? 'hidden' : 'switch'}"
+      = render :partial => 'layouts/flash_messages', :flash => flash
       = yield
 
 javascript:

@@ -1,5 +1,6 @@
 pt-BR:
   search: Pesquisar
+  upload_success: Upload feito com sucesso! O processamento está feito em segundo plano, por favor atualize o navegador em alguns segundos.
 
   activerecord:
     models:

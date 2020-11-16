@@ -23,6 +23,7 @@ RSpec.describe FinancialOperationsController, type: :controller do
 
       it 'redirects to financial operations path' do
         expect(subject).to redirect_to(financial_operations_path)
+        expect(flash[:notice]).to be_present
       end
     end
 
